@@ -5,5 +5,5 @@
     <a href="#">Terms</a>
     <a href="#">Settings</a>
     
-    <a href="logout.php" class="navbar__logout">Logout <?php echo $_SESSION['username']; ?>, logout?</a>
+    <a href="logout.php" class="navbar__logout">Logout</a>
 </nav>
