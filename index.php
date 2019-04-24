@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php include_once("nav.inc.php"); ?>
+    <p><a href=".navbar" id="access_nav" class="access_aid">Skip to navigation</a></p>
     <img src="images/logo_groot.png" alt="logo" class="logoBig">
     <h1>CleanSpace</h1>
 </body>
