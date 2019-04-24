@@ -15,8 +15,15 @@
         <a class="logoSmall" href="index.php">CleanSpace</a>
     </header>
     <div class="tip">
-        <h2>Tip of the day</h2>
+        <h3>Tip of the day</h3>
         <p>Gebruik een drinkbus ipv plastic flesjes</p>
+    </div>
+    <div class="create">
+        <p>CREATE<br>
+        SPACE</p>
+    </div>
+    <div class="myLocations">
+        <p>My locations</p>
     </div>
 </body>
 </html>
