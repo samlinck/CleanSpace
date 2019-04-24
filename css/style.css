@@ -3,15 +3,25 @@
 }
 
 body {
+    margin: 0;
     font-family: 'Nunito', sans-serif;
     color: #112F41;
 }
+
+
 
 .logoBig {
     padding-top: 35px;
     display: block;
     width: 50%;
     margin: auto;
+}
+
+.logoMedium {
+    display: block;
+    width: 30%;
+    margin: auto;
+    padding-top: 30px;
 }
 
 h1 {
@@ -21,12 +31,23 @@ h1 {
     margin-bottom: 15px;
 }
 
+h2 {
+    font-size: 2em;
+    text-align: center;
+    font-weight:900;
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+}
+
 a {
     text-decoration: none;
     color: #112F41;
-   
     font-weight: 900;
-    
+}
+
+a.blue {
+    color: #068587;
 }
 
 .noMember{
@@ -46,7 +67,7 @@ form {
     margin-right: auto;
 }
 
-label {
+label.input {
     padding-top: 20px;
     display: block;
     font-weight: 900;
@@ -74,4 +95,12 @@ input.btn {
     font-weight: 900;
     font-size: 20px;
     width: 50%;
+}
+
+.checkboxContainer {
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
 }
