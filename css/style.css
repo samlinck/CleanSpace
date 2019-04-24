@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: #112F41;
+}
+
+.logoBig {
+    padding-top: 35px;
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
+h1 {
+    font-size: 3.2em;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #112F41;
+   
+    font-weight: 900;
+    
+}
+
+.noMember{
+    margin-top: 5px;
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    padding-top: 20px;
+    display: block;
+    font-weight: 900;
+    margin-left: 20px;
+}
+
+input.field {
+    border: 5px solid #112F41;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+input.btn {
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #4FB970;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    width: 50%;
+}
