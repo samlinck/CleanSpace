@@ -10,9 +10,7 @@
 </head>
 <body>
     <header>
-        <?php include_once("nav.inc.php"); ?>
-        <p><a href=".navbar" id="access_nav" class="access_aid">Skip to navigation</a></p>
-        <a class="logoSmall" href="index.php">CleanSpace</a>
+        <?php include_once("includes/nav.inc.php"); ?>
     </header>
     <div class="tip">
         <h3>Tip of the day</h3>
