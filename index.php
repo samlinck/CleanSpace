@@ -17,14 +17,16 @@
         <p>Gebruik een drinkbus ipv plastic flesjes</p>
     </div>
     <div class="create">
-        <p>CREATE<br>
-        SPACE</p>
+        <a href="create.php"> 
+            CREATE<br>
+            SPACE
+        </a>
     </div>
     <div class="button button--green">
-        <p>Join Space</p>
+        <a href="#">Join Space</a>
     </div>
     <div class="button button--yellow">
-        <p>My locations</p>
+        <a href="#">My locations</a>
     </div>
 </body>
 </html>

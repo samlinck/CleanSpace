@@ -9,12 +9,10 @@
     <title>CleanSpace</title>
 </head>
 <body>
-<header>
-        <?php include_once("nav.inc.php"); ?>
-        <p><a href=".navbar" id="access_nav" class="access_aid">Skip to navigation</a></p>
-        <a class="logoSmall" href="index.php">CleanSpace</a>
+    <header>
+        <?php include_once("includes/nav.inc.php"); ?>
     </header>
-    <div class="create-space">
+    <div class="create-space large-container">
         <p>Create Space</p>
         <form action="" method="post">
         <label class="input" for="spaceName">Space Name</label>
