@@ -22,7 +22,10 @@
         <p>CREATE<br>
         SPACE</p>
     </div>
-    <div class="myLocations">
+    <div class="button button--green">
+        <p>Join Space</p>
+    </div>
+    <div class="button button--yellow">
         <p>My locations</p>
     </div>
 </body>

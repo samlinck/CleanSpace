@@ -151,8 +151,7 @@ div.create p {
     font-weight: 900;
 }
 
-div.myLocations {
-    background-color: #F2AF36;
+.button {
     width: 65%;
     border-radius: 20px;
     margin-left: auto;
@@ -160,12 +159,56 @@ div.myLocations {
     margin-top: 25px;
 }
 
-div.myLocations p {
+.button p{
     text-align: center;
     font-weight: 900;
     font-size: 1.8em;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.create-space {
+    margin-top: 30px;
+}
+
+.create-space p {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.create-space a {
+    text-align: center;
+}
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+.location,.plus {
+    width: 30%;
+}
+.button--yellow {
+    background-color: #F2AF36;
+}
+
+.button--green {
+    background-color: #068587;
+}
+
+.field--small {
+    width: 60%;
+}
+
+.link--big {
+    display: block;
+    border: 5px solid #112F41;
+    border-radius: 20px;
+    padding: 25px 0px 25px 0px;
+    width: 40%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* css for nav */
