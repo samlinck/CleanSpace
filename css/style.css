@@ -171,7 +171,8 @@ div.create a {
 }
 
 .large-container {
-    margin-top: 30px;
+    margin-top: 50px;
+    width: 100%;
 }
 
 .large-container p {
@@ -188,9 +189,33 @@ div.create a {
     display: flex;
     justify-content: space-between;
 }
+
 .location,.plus {
     width: 30%;
 }
+
+.location-grid {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: repeat(3, auto);
+    justify-content: center;
+    grid-gap: 10px;
+}
+
+.location-grid div {
+    justify-self: center;
+}
+
+.location-grid div img {
+    cursor: hand;
+    cursor: pointer;
+}
+
+.location-grid p {
+    font-size: 14px;
+}
+
 .button--yellow {
     background-color: #F2AF36;
 }

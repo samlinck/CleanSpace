@@ -16,39 +16,39 @@
         <p>Space Type</p>
         <div class="location-grid">
             <div>
-                <img src="" alt="">
+                <img src="./images/nature.svg" alt="">
                 <p>Nature</p>
             </div>
             <div>
-                <img src="" alt="">
+                <img src="./images/sport.svg" alt="">
                 <p>Sport</p>
             </div>
             <div>
-                <img src="" alt="">
+                <img src="./images/culture.svg" alt="">
                 <p>Culture</p>
             </div>
             <div>
-                <img src="" alt="">
+                <img src="./images/Urban.svg" alt="">
                 <p>Urban</p>
             </div>
             <div>
-                <img src="" alt="">
+                <img src="./images/workspace.svg" alt="">
                 <p>Workspace</p>
             </div>
             <div>
-                <img src="" alt="">
+                <img src="./images/infrastructure.svg" alt="">
                 <p>Transport</p>
             </div>
             <div>
-                <img src="" alt="">
+                <img src="./images/event.svg" alt="">
                 <p>Event</p>
             </div>
             <div>
-                <img src="" alt="">
+                <img src="./images/home.svg" alt="">
                 <p>Home</p>
             </div>
             <div>
-                <img src="" alt="">
+                <img src="./images/custom.svg" alt="">
                 <p>Custom</p>
             </div>
         </div>
