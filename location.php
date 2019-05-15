@@ -27,7 +27,7 @@
                 <a href="#">
                     <div data-member="3"></div>
                 </a>
-                <a href="#">
+                <a href="member.php">
                     <div data-member="4">
                         <p class="bollekes">...</p>
                     </div>
@@ -46,7 +46,7 @@
                 <div></div>
             </a>
             <a href="#">
-                <div></div>
+                <div class="make-problem"></div>
             </a>
         </div>
         <p class="title-left">challenges</p>
@@ -61,7 +61,7 @@
                 <div></div>
             </a>
             <a href="#">
-                <div></div>
+                <div class="make-problem"></div>
             </a>
         </div>
         <p>Progress</p>
