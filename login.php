@@ -9,15 +9,17 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="images/logo_groot.png" alt="logo" class="logoBig">
-    <h1>CleanSpace</h1>
-    <form action="" method="post">
-        <label class="input" for="email">Email</label>
-        <input type="text" id="email" name="password" class="field">
-        <label class="input" for="password">Password</label>
-        <input type="password" id="password" name="password" class="field">
-        <input type="submit" value="Login" class="btn">
-    </form>
-    <a href="register.php" class="noMember">Not a member yet?</a>
+    <div class="large-container">
+        <img src="images/logo_groot.png" alt="logo" class="logoBig">
+        <h1>CleanSpace</h1>
+        <form action="" method="post">
+            <label class="input" for="email">Email</label>
+            <input type="text" id="email" name="password" class="field">
+            <label class="input" for="password">Password</label>
+            <input type="password" id="password" name="password" class="field">
+            <input type="submit" value="Login" class="btn">
+        </form>
+        <a href="register.php" class="noMember">Not a member yet?</a>
+    </div>
 </body>
 </html>
