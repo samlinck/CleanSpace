@@ -59,6 +59,12 @@ h3 {
     margin-left: -20px;
 }
 
+h4 {
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
 a {
     text-decoration: none;
     color: #112F41;
@@ -214,6 +220,81 @@ div.create a {
 
 .location-grid p {
     font-size: 14px;
+}
+
+.single-location {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.space-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.members {
+    display: flex;
+}
+
+.members a div {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 3px solid #112F41;
+    margin-left: -20px;
+    background: #dddddd;
+    position: relative;
+}
+
+a div[data-member='1'] {
+    margin-left: 0;
+    z-index: 5;
+}
+
+a div[data-member='2'] {
+    z-index: 4;
+}
+
+a div[data-member='3'] {
+    z-index: 3;
+}
+
+a div[data-member='4'] {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.bollekes {
+    margin-left: 13px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.large-container p.title-left {
+    text-align: left;
+}
+
+.space-problems {
+    display: flex;
+    justify-content: space-around;
+}
+
+.space-problems div {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 3px solid #112F41;
+    margin: 7px;
+}
+
+/* backgroundimage volgens data attr, zo kan je met php de juiste erin zetten */
+
+.space-progress {
+    display: flex;
+    justify-content: space-around;
 }
 
 .button--yellow {
