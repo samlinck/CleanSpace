@@ -66,10 +66,14 @@
         </div>
         <p>Progress</p>
         <div class="space-progress">
-            <img src="" alt="">
-            <p class="like">0</p>
-            <img src="" alt="">
-            <p class="dislike">-1</p>
+            <div class="likes">
+                <img src="./images/like.svg" alt="">
+                <p class="like">0</p>
+            </div>
+            <div class="dislikes">
+                <img src="./images/dislike.svg" alt="">
+                <p class="dislike">-1</p>
+            </div>
         </div>
     </div>
 </body>
