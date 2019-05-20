@@ -338,7 +338,33 @@ div.make-problem {
     margin-left: auto;
     margin-right: auto;
 }
-
+/* locations */
+.myLocations {
+    padding-top: 20px;
+}
+.list-container{
+    width: 65%;
+    margin: auto;
+}
+.list-items{
+    display: flex;
+    flex-direction: column; 
+    margin-left: 0;
+}
+ul{
+    padding-left: 0;
+}
+.location-list{
+    display: flex;
+    align-items: center;
+    margin: 2% 0;
+    justify-content: center;
+}
+.location-icon {
+    padding-right: 15px;
+}
+.spaceName {
+}
 /* css for nav */
 header{
     background:#ffffff; 
