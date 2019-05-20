@@ -349,70 +349,106 @@ header{
     border: none;
     margin-top: 1px;
 }
-.hamburger{
-  background:none;
-  position:absolute;
-  top:0;
-  left:0;
-  line-height:45px;
-  padding:5px 15px 0px 15px;
-  color:#112F41;
-  border:0;
-  font-size:2em;
-  font-weight:bold;
-  cursor:pointer;
-  outline:none;
-  z-index:10000000000000;
-}
-.cross{
-  background:none;
-  position:absolute;
-  top:0px;
-  left:0;
-  padding:7px 15px 0px 15px;
-  color:#fff;
-  border:0;
-  font-size:3.5em;
-  font-weight:bold;
-  cursor:pointer;
-  outline:none;
-  z-index:10000000000000;
-}
-.menu {z-index:1000000;  display: flex;
-  flex-direction: column;
-  align-items: left;
-  padding-top: 2.5em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #112F41;
-  width:200px;}
-.menu ul {padding-inline-start: 20px; list-style-type: none; list-style-image: none;}
-.menu li {display: block;   margin: 0; padding:10px 15px 10px 15px; margin-right: 20px;}
-.menu li:hover{display: block;  color:#112F41; border-radius:25px; background:#ffffff;}
-.menu ul li a { text-decoration:none;  color:#fff;}
-.menu a{text-decoration:none; color:#fff;}
-.menu a:hover{text-decoration:none; color:#fff;}
-.menu .menu__logout {margin-top: 150px;}
 
-/* .navbar {
+#navToggle {
+    width: 47px;
+    position: absolute;
+    margin: 10px;
+    
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+  }
+  #navToggle span {
+    display: block;
+    position: absolute;
+    height: 7px;
+    width: 100%;
+    background: #112F41;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+  }
+  
+  #navToggle span:nth-child(1) {
+    top: 0px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+  #navToggle span:nth-child(2) {
+    top: 15px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+  
+  #navToggle span:nth-child(3) {
+    top: 30px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+  }
+  
+  #navToggle.open span:nth-child(1) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -3px;
+    left: 7px;
+  }
+  
+  #navToggle.open span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+  }
+  
+  #navToggle.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 30px;
+    left: 7px;
+  }
+  
+  .menu{
+    z-index:1000000;  display: flex;
     display: none;
-}
-.navbar:target {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  padding: 2em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #112F41;
-  width:200px;
-}
-.navbar a{
-    margin-top: 10px;
-    color: #fff;
-} */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 2.5em;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #112F41;
+    width:100%;}
+  .menu ul {padding-inline-start: 20px; list-style-type: none; list-style-image: none; width: 100%;}
+  .menu li {display: block;   margin: 0; padding:10px 15px 10px 15px; margin-right: 20px;}
+  .menu li:hover{display: block;  color:#112F41; border-radius:25px; background:#ffffff;}
+  .menu ul li a { text-decoration:none;  color:#fff;}
+  .menu a{text-decoration:none; color:#fff;}
+  .menu a:hover{text-decoration:none; color:#fff;}
+  .menu .menu__logout {margin-top: 150px;}
 
 @media (min-width: 900px) {
     /* body {
