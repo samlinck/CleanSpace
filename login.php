@@ -1,4 +1,25 @@
-<!DOCTYPE html>
+<?php
+include_once("bootstrap.php");
+// get user and password from POST
+if(!empty($_POST)){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+	$user = new User();
+	$user->setEmail($email);
+	$user->setPassword($password);
+	//check if user can login (use function)
+	$data = $user->CanILogin();
+    if($data != false){
+        $_SESSION['user'] = $data;
+        // if ok -> redirect to index.php
+        header('Location: index.php');
+    }
+    else {
+        $error = "Login failed";
+    }
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,14 +33,23 @@
     <div class="large-container">
         <img src="images/logo_groot.png" alt="logo" class="logoBig">
         <h1>CleanSpace</h1>
-        <form action="" method="post">
-            <label class="input" for="email">Email</label>
-            <input type="text" id="email" name="password" class="field">
-            <label class="input" for="password">Password</label>
-            <input type="password" id="password" name="password" class="field">
-            <input type="submit" value="Login" class="btn">
-        </form>
-        <a href="register.php" class="noMember">Not a member yet?</a>
+        <div class="Login">
+            <form action="" method="post">
+                <?php if( isset($error) ): ?>
+                    <div class="form__error">
+                        <p>
+                            Sorry, we can't log you in with that email and password. Can you try again?
+                        </p>
+                    </div>
+                <?php endif; ?>
+                <label class="input" for="email">Email</label>
+                <input type="text" id="email" name="email" class="field">
+                <label class="input" for="password">Password</label>
+                <input type="password" id="password" name="password" class="field">
+                <input type="submit" value="Login" class="btn">
+            </form>
+            <a href="register.php" class="noMember">Not a member yet?</a>
+        </div>
     </div>
 </body>
 </html>
