@@ -5,6 +5,8 @@
     $space = Space::getSpaceInfo($spaceId);
 
     $space = array_shift($space);
+    $issues = Issue::getIssueBySpaceId($spaceId);
+    // print_r($issues); exit();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,21 +45,17 @@
         </div>
         <p class="title-left">issues</p>
         <div class="space-problems space-issues">
-            <a href="#">
-                <div></div>
-            </a>
-            <a href="#">
-                <div></div>
-            </a>
-            <a href="#">
-                <div></div>
-            </a>
-            <a href="#">
+            <?php foreach ($issues as $i): ?>
+                <a href="issue.php?issue_id=<?php echo $i['id'];?>">
+                    <div><img src="./images/<?php echo $i['issueType']; ?>.svg" alt=""></div>
+                </a>
+                <a href="#">
+            <?php endforeach; ?>
                 <a href="newIssue.php?location_id=<?php echo $space['id'];?>"><div class="make-problem"></div></a>
             </a>
         </div>
-        <p class="title-left">challenges</p>
-        <div class="space-problems space-challenges">
+        <p class="title-left" style="display: none">challenges</p>
+        <div class="space-problems space-challenges" style="display: none">
         <a href="#">
                 <div></div>
             </a>

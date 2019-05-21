@@ -34,7 +34,7 @@
     </header>
     <div class="single-location large-container">
         <div class="add-issue">
-            <img src="./images/cross.svg" alt="">
+            <a href="location.php?location_id=<?php echo $spaceId;?>"><img src="./images/cross.svg" alt=""></a>
             <p>Add issue</p>
             <div class="issue-sorts">
                 <a href="newIssue.php?location_id=<?php echo $spaceId;?>&issue_type=afval">

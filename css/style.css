@@ -287,8 +287,13 @@ a div[data-member='4'] {
     height: 50px;
     width: 50px;
     border-radius: 100%;
-    border: 3px solid #112F41;
+    /* border: 3px solid #112F41; */
     margin: 7px;
+    position: relative;
+}
+
+.space-problems div img {
+    max-width: 100%;
 }
 
 div.make-problem {
@@ -353,6 +358,15 @@ textarea.field {
     font-size: 18px;
     width: 100%;
 }
+
+.description {
+    margin-top: 20px;
+    border: 5px solid #112F41;
+    border-radius: 30px;
+    padding: 10px 20px;
+    background-color: white;
+}
+
 .button--yellow {
     background-color: #F2AF36;
 }
