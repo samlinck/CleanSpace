@@ -30,5 +30,31 @@
         <a href="spaceType.php" class="link--big">Space <br> Type</a>
         <input type="submit" value="Create" class="btn">
     </div>
+        <script src="https://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            var platform = new H.service.Platform({
+                "app_id": "D0oDddNZmbkt1cllGcwX",
+                "app_code": "D6SmVEDVo36WQsabESqgpA"
+            });
+            var geocoder = platform.getGeocodingService();
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    geocoder.reverseGeocode(
+                        {
+                            mode: "retrieveAddresses",
+                            maxresults: 1,
+                            prox: position.coords.latitude + "," + position.coords.longitude
+                        }, data => {
+                            alert("The nearest address to your location is:\n" + data.Response.View[0].Result[0].Location.Address.Label);
+                        }, error => {
+                            console.error(error);
+                        }
+                    );
+                });
+            } else {
+                console.error("Geolocation is not supported by this browser!");
+            }
+        </script>
 </body>
 </html>
