@@ -1,10 +1,17 @@
 <?php
-    include_once("bootstrap.php");
+    require_once("bootstrap.php");
+
+    $userName = $_SESSION['user'][1];
+    if(isset($_GET['type'])) {
+        $spaceType = $_GET['type'];
+    } else {
+        $spaceType = "Space <br> Type";
+    }
 
     if (!empty($_POST)) {
         $spaceLocation = $_POST['location'];
         $space = new Space();
-        // get info
+        // get specific location
         $pieces = explode(",", $spaceLocation);
         $stukken = explode(" ", $pieces[0]);
         $street = $stukken[0];
@@ -12,14 +19,20 @@
         $dorp = explode(" ", $pieces[1]);
         $zip = $dorp[1];
         $city = $dorp[2];
+        // get user_id and show username
+        $userId = $_SESSION['user'][0];
+
         //set info
+        $space->setSpaceName($_POST['spaceName']);
         $space->setStreet($street);
         $space->setNumber($number);
         $space->setZip($zip);
         $space->setCity($city);
+        $space->setUserId($userId);
+        $space->setSpaceType($spaceType);
         
         // info about space to db
-        $space->register();
+        $space->registerSpace();
 
     }
         else {
@@ -41,6 +54,7 @@
     </header>
     <div class="create-space large-container">
         <p>Create Space</p>
+        <a href="spaceType.php" class="link--big"><?php echo $spaceType ?></a>
         <form action="" method="post">
         <label class="input" for="spaceName">Space Name</label>
         <input type="text" name="spaceName" id="spaceName" class="field">
@@ -51,10 +65,9 @@
         </div>
         <label class="input" for="admins">Admins</label>
         <div class="flex-container">
-            <input type="text" id="admins" name="admins" class="field field--small">
+            <input type="text" id="admins" name="admins" value="<?php echo $userName?>" class="field field--small">
             <img class="plus" src="./images/plus.svg" alt="">
         </div>
-        <a href="spaceType.php" class="link--big">Space <br> Type</a>
         <input type="submit" value="Create" class="btn">
     </div>
         <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>

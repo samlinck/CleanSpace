@@ -2,11 +2,73 @@
     require_once("Db.class.php");
 
     class Space {
+        private $spaceName;
         private $street;
         private $number;
         private $zip;
         private $city;
-        
+        private $userId;
+        private $spaceType;
+       
+        /**
+         * Get the value of spaceName
+         */ 
+        public function getSpaceName()
+        {
+                return $this->spaceName;
+        }
+
+        /**
+         * Set the value of spaceName
+         *
+         * @return  self
+         */ 
+        public function setSpaceName($spaceName)
+        {
+                $this->spaceName = $spaceName;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of userId
+         */ 
+        public function getUserId()
+        {
+                return $this->userId;
+        }
+
+        /**
+         * Set the value of userId
+         *
+         * @return  self
+         */ 
+        public function setUserId($userId)
+        {
+                $this->userId = $userId;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of spaceType
+         */ 
+        public function getSpaceType()
+        {
+                return $this->spaceType;
+        }
+
+        /**
+         * Set the value of spaceType
+         *
+         * @return  self
+         */ 
+        public function setSpaceType($spaceType)
+        {
+                $this->spaceType = $spaceType;
+
+                return $this;
+        }
 
         /**
          * Get the value of street
@@ -87,22 +149,25 @@
 
                 return $this;
         }
-        public function register() {
+        public function registerSpace() {
     
             try {
                 $conn = Db::getInstance();
-                $statement = $conn->prepare('INSERT INTO space (street, number, zip, city) values (:street, :number, :zip, :city))');
+                $statement = $conn->prepare('insert into space( spaceName, street, number, zip, city, user_id, spaceType) VALUES (:spaceName, :street, :number, :zip, :city, :userId, :spaceType)');
+                $statement->bindParam(':spaceName', $this->spaceName);
                 $statement->bindParam(':street', $this->street);
                 $statement->bindParam(':number', $this->number);
                 $statement->bindParam(':zip', $this->zip);
-                $statement->bindParam(':city', $this->city);  
+                $statement->bindParam(':city', $this->city);
+                $statement->bindParam(':userId', $this->userId);
+                $statement->bindParam(':spaceType', $this->spaceType);  
                 $statement->execute();
-
     
             } catch ( Throwable $t ) {
                 return false;
     
             }
         
-    }
+        }
+
     }
