@@ -1,23 +1,40 @@
 <?php
 
-	require_once("bootstrap.php");
+    require_once("bootstrap.php");
+    include_once("classes/security.class.php");
 	
 	if ( !empty($_POST)) {
-		
-		$user = new User();
-		$user->setUsername($_POST['username']);        
-		$user->setEmail($_POST['email']);
-		$user->setPassword($_POST['password']);
+		try
+        {
+            $security = new Security();
+            $security->password = $_POST['password'];
+            $security->passwordConfirmation = $_POST['repeatpassword'];
 
-		if($user->isAccountAvailable($_POST['email']) && $user->isUsernameAvailable($_POST['username'])){
-			$data = $user->register();
-			if($data != false) {
-				$_SESSION['user'] = $data;
-				header('location: index.php');
-			}else{
-				$error = true;
+            if( $security->passwordsAreSecure() ){
+
+                $user = new User();
+                $user->setUsername($_POST['username']);        
+                $user->setEmail($_POST['email']);
+                $user->setPassword($_POST['password']);
+                $user->setPasswordConfirmation($_POST['repeatpassword']);
+
+                if($user->isAccountAvailable($_POST['email']) && $user->isUsernameAvailable($_POST['username'])){
+                    $data = $user->register();
+                    if($data != false) {
+                        $_SESSION['user'] = $data;
+                        header('location: index.php');
+                    }else{
+                        $error = true;
+                    }
+                }
 			}
-		}
+			else {
+				$perror = "Your passwords are not secure or do not match.";
+			}
+        }
+        catch(Exception $e) {
+			$perror = $e->getMessage();
+        }
 	}
 ?><!DOCTYPE html>
 <html lang="en">
@@ -34,6 +51,24 @@
         <img src="images/logo_groot.png" alt="" class="logoMedium">
             <h2>CleanSpace</h2>
             <form action="" method="post">
+                <?php if(isset($error)): ?>
+                        <div class="form__error">
+                            <p>
+                                <?php echo "Something went wrong!"; ?>
+                                
+                            </p>
+                        </div>
+                <?php endif; ?>
+                <?php if(isset($perror)): ?>
+                        <div class="form__error">
+                            <p>
+                              <?php echo $perror; ?>
+                            </p>
+                        </div>
+                <?php endif; ?>
+				<div>
+					<p class="availabilityCheck2"></p>
+				</div>
                 <label class="input" for="username">Username</label>
                 <input type="text" name="username" id="username" class="field">
                 <div>
@@ -41,10 +76,12 @@
                 </div>
                 <label class="input" for="email">Email</label>
                 <input type="text" id="email" name="email" class="field">
+
                 <label class="input" for="password">Password</label>
                 <input type="password" id="password" name="password" class="field">
-                <label class="input" for="repeatPassword">Repeat Password</label>
-                <input type="password" id="repaetpassword" name="repeatpassword" class="field">
+
+                <label class="input" for="repeatpassword">Repeat Password</label>
+                <input type="password" id="repeatpassword" name="repeatpassword" class="field">
                 <label class="checkboxContainer">
                     <input type="checkbox" checked="checked">
                     <span class="checkmark">I agree with the <a class="blue" href="#">terms and conditions</a></span>
