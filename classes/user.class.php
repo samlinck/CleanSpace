@@ -8,6 +8,7 @@
         private $username;
         private $email;
         private $password;
+        private $passwordConfirmation;
 
 
         /**
@@ -69,6 +70,25 @@
 
                 return $this;
         }  
+        /**
+         * Get the value of passwordConfirmation
+         */ 
+        public function getPasswordConfirmation()
+        {
+                return $this->passwordConfirmation;
+        }
+
+        /**
+         * Set the value of passwordConfirmation
+         *
+         * @return  self
+         */ 
+        public function setPasswordConfirmation($passwordConfirmation)
+        {
+                $this->passwordConfirmation = $passwordConfirmation;
+
+                return $this;
+        }
         
 
         
@@ -104,6 +124,16 @@
         
                 }
             
+        }
+
+        public static function checkLogin()
+        {
+            if (isset($_SESSION)) {
+                // session_start();
+            }
+            if (!isset($_SESSION['user'])) {
+                header('Location: login.php');
+            }
         }
 
         public static function findByEmail($email){
@@ -179,4 +209,6 @@
                 return $result;
         }
 
+
+        
     }
