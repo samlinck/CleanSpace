@@ -9,7 +9,28 @@
         private $city;
         private $userId;
         private $spaceType;
+        private $spaceId;
+        
        
+        /**
+         * Get the value of spaceId
+         */ 
+        public function getSpaceId()
+        {
+                return $this->spaceId;
+        }
+
+        /**
+         * Set the value of spaceId
+         *
+         * @return  self
+         */ 
+        public function setSpaceId($spaceId)
+        {
+                $this->spaceId = $spaceId;
+
+                return $this;
+        }
         /**
          * Get the value of spaceName
          */ 
@@ -153,15 +174,18 @@
     
             try {
                 $conn = Db::getInstance();
-                $statement = $conn->prepare('insert into space( spaceName, street, number, zip, city, user_id, spaceType) VALUES (:spaceName, :street, :number, :zip, :city, :userId, :spaceType)');
+                $statement = $conn->prepare('insert into space( spaceName, street, number, zip, city, spaceType) VALUES (:spaceName, :street, :number, :zip, :city, :spaceType)');
                 $statement->bindParam(':spaceName', $this->spaceName);
                 $statement->bindParam(':street', $this->street);
                 $statement->bindParam(':number', $this->number);
                 $statement->bindParam(':zip', $this->zip);
                 $statement->bindParam(':city', $this->city);
-                $statement->bindParam(':userId', $this->userId);
                 $statement->bindParam(':spaceType', $this->spaceType);  
                 $statement->execute();
+
+                // get last id
+                $lastId = $conn->lastInsertId();
+                return $lastId;
     
             } catch ( Throwable $t ) {
                 return false;
@@ -169,5 +193,32 @@
             }
         
         }
+        public function createSpaceAdmin() {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('insert into spaceadmins (space_id, user_id) values (:spaceId, :userId)');
+                        $statement->bindParam(':spaceId', $this->spaceId);
+                        $statement->bindParam(':userId', $this->userId);
+                        $statement->execute();
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
 
+        public static function getSpaceInfo($spaceId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select * from space where id= :space_id');
+                        $statement->bindParam(':space_id', $spaceId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        } 
+
+        
     }

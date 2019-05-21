@@ -19,7 +19,7 @@
         $dorp = explode(" ", $pieces[1]);
         $zip = $dorp[1];
         $city = $dorp[2];
-        // get user_id and show username
+        // get user_id
         $userId = $_SESSION['user'][0];
 
         //set info
@@ -28,14 +28,22 @@
         $space->setNumber($number);
         $space->setZip($zip);
         $space->setCity($city);
-        $space->setUserId($userId);
         $space->setSpaceType($spaceType);
+
+        // info about space to db and get id from space
+       $spaceId = $space->registerSpace();
         
-        // info about space to db
-        $space->registerSpace();
+       // insert admin's user id en space_id in spaceadmins
+        $space->setUserId($userId);
+        $space->setSpaceId($spaceId);
+        $space->createSpaceAdmin();
+
+        //go to next page and give location id
+        header("Location: location.php?location_id=".$spaceId);
 
     }
         else {
+            
         }
     
 ?><!DOCTYPE html>
@@ -63,10 +71,10 @@
             <input type="text" id="location" name="location" class="field field--small">
             <img class="location" src="./images/location.svg" alt=""> 
         </div>
-        <label class="input" for="admins">Admins</label>
+        <label class="input" for="admins">Admin</label>
         <div class="flex-container">
-            <input type="text" id="admins" name="admins" value="<?php echo $userName?>" class="field field--small">
-            <img class="plus" src="./images/plus.svg" alt="">
+            <input type="text" id="admins" name="admins" value="<?php echo $userName?>" class="field">
+            <img class="plus" src="./images/plus.svg" alt="" style="display: none">
         </div>
         <input type="submit" value="Create" class="btn">
     </div>
