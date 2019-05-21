@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php 
+    require_once("bootstrap.php");
+
+    $spaceId = $_GET['location_id'];
+    $space = Space::getSpaceInfo($spaceId);
+
+    $space = array_shift($space);
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,8 +21,8 @@
     </header>
     <div class="single-location large-container">
         <div class="space-info">
-            <img src="./images/nature.svg" alt="" class="space-logo">
-            <h2>Space Name</h2>
+            <img src="./images/<?php echo $space['spaceType'];?>.svg" alt="" class="space-logo">
+            <h2><?php echo $space['spaceName'];?></h2>
             <p>Members</p>
             <div class="members">
                 <a href="#">
@@ -46,7 +53,7 @@
                 <div></div>
             </a>
             <a href="#">
-                <div class="make-problem"></div>
+                <a href="newIssue.php?location_id=<?php echo $space['id'];?>"><div class="make-problem"></div></a>
             </a>
         </div>
         <p class="title-left">challenges</p>
@@ -64,8 +71,8 @@
                 <div class="make-problem"></div>
             </a>
         </div>
-        <p>Progress</p>
-        <div class="space-progress">
+        <p style="display: none">Progress</p>
+        <div class="space-progress" style="display :none">
             <div class="likes">
                 <img src="./images/like.svg" alt="">
                 <p class="like">0</p>
