@@ -417,7 +417,7 @@ ul{
     display: flex;
     align-items: center;
     margin: 2% 0;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .location-icon {
     padding-right: 15px;
