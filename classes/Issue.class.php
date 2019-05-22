@@ -106,4 +106,44 @@
     
             }
         }
+        public static function getActiveType($activeType) {
+                try {
+                        switch ($activeType) {
+                                case "afval":
+                                    echo '<style type="text/css">
+                                    #afval {
+                                        border: 5px solid green;
+                                        border-radius: 100%;
+                                    }
+                                    </style>';
+                                    break;
+                                case "energie":
+                                echo '<style type="text/css">
+                                #energie {
+                                    border: 5px solid green;
+                                    border-radius: 100%;
+                                }
+                                </style>';
+                                    break;
+                                case "groen":
+                                echo '<style type="text/css">
+                                #groen {
+                                    border: 5px solid green;
+                                    border-radius: 100%;
+                                }
+                                </style>';
+                                    break;
+                                case "water":
+                                echo '<style type="text/css">
+                                #water {
+                                    border: 5px solid green;
+                                    border-radius: 100%;
+                                }
+                                </style>';
+                                    break;
+                    }
+                } catch( Throwable $t ) {
+                        return false;
+                }
+        }
     }
