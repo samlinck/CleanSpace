@@ -79,4 +79,31 @@
     
             }
         }
+
+        public static function getIssueBySpaceId($spaceId) {
+            try {
+                $conn = Db::getInstance();
+                $statement = $conn->prepare('select * from issue where space_id = :space_id');
+                $statement->bindParam('space_id', $spaceId);
+                $statement->execute();
+
+                return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch ( Throwable $t ) {
+                return false;
+    
+            }
+        }
+        public static function getIssueById($issueId) {
+            try {
+                $conn = Db::getInstance();
+                $statement = $conn->prepare('select * from issue where id = :issue_id');
+                $statement->bindParam('issue_id', $issueId);
+                $statement->execute();
+                
+                return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch ( Throwable $t ) {
+                return false;
+    
+            }
+        }
     }
