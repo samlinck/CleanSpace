@@ -180,6 +180,7 @@ div.create a {
 .large-container {
     margin-top: 50px;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 .large-container p {
