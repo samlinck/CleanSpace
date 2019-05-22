@@ -30,7 +30,7 @@ User::checkLogin();
             <a href="#">Join Space</a>
         </div>
         <div class="button button--yellow">
-            <a href="#">My locations</a>
+            <a href="locations.php">My locations</a>
         </div>
     </div>
 </body>

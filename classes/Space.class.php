@@ -206,6 +206,21 @@
                     }
         }
 
+        public static function getSpaces()
+        {
+            try {
+                $conn = Db::getInstance();
+                $statement = $conn->prepare('select * from space');
+                $statement->execute();
+                $result = $statement->fetchAll();
+
+                return $result;
+            } catch (Throwable $t) {
+                echo $t;
+            }
+        }
+
+
         public static function getSpaceInfo($spaceId) {
                 try {
                         $conn = Db::getInstance();

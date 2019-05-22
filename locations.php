@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+    require_once 'bootstrap.php';
+
+    $space = new Space();
+    /*$spaceId = $_GET['location_id'];
+    $space = Space::getSpaceInfo($spaceId);*/
+
+
+    $get = $_SESSION['user'][0];
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,17 +27,25 @@
         <p class="myLocations">Managing</p>
         <div class="list-container">       
             <ul class="list-items" id="listupdates">
-                <li class="location-list"><img src="./images/location.svg" alt="locationIcon" class="location-icon"><a href="spaceType.php" class="spaceName">Space Name</a></li>
-                <li class="location-list"><img src="./images/location.svg" alt="locationIcon" class="location-icon"><a href="spaceType.php" class="spaceName">Different Space</a></li>
-                <li class="location-list"><img src="./images/location.svg" alt="locationIcon" class="location-icon"><a href="spaceType.php" class="spaceName">Different Space</a></li>
+            <?php 
+                $spaces = $space->getSpaces();
+                foreach($spaces as $s): 
+            ?>
+            <li class="location-list"><img src="images/<?php echo $s['spaceType'];?>.svg" alt="locationIcon" class="location-icon"> <a href="location.php?location_id=<?php echo $s['id'];?>" class="spaceName"><?php echo $s['spaceName'];?></a></li>
+
+            <?php endforeach; ?>
             </ul>
         </div>
         <p class="myLocations">Joined</p>
         <div class="list-container">       
             <ul class="list-items" id="listupdates">
-                <li class="location-list"><img src="./images/location.svg" alt="locationIcon" class="location-icon"><a href="spaceType.php" class="spaceName">Space Name</a></li>
-                <li class="location-list"><img src="./images/location.svg" alt="locationIcon" class="location-icon"><a href="spaceType.php" class="spaceName">Different Space</a></li>
-                <li class="location-list"><img src="./images/location.svg" alt="locationIcon" class="location-icon"><a href="spaceType.php" class="spaceName">Different Space</a></li>
+            <?php 
+                $spaces = $space->getSpaces();
+                foreach($spaces as $s): 
+            ?>
+            <li class="location-list"><img src="images/<?php echo $s['spaceType'];?>.svg" alt="locationIcon" class="location-icon"> <a href="location.php?location_id=<?php echo $s['id'];?>" class="spaceName"><?php echo $s['spaceName'];?></a></li>
+
+            <?php endforeach; ?>
             </ul>
         </div>
     </div>
