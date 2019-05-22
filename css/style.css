@@ -394,7 +394,7 @@ textarea.field {
 .list-items{
     display: flex;
     flex-direction: column; 
-    margin-left: 0;
+    align-items: center;
 }
 ul{
     padding-left: 0;
@@ -402,13 +402,14 @@ ul{
 .location-list{
     display: flex;
     align-items: center;
-    margin: 2% 0;
-    justify-content: center;
+    margin: 7px 0;
+    width: 250px;
 }
 .location-icon {
-    padding-right: 15px;
+    width: 55px;
 }
 .spaceName {
+    margin-left: 18%;
 }
 /* css for nav */
 header{
@@ -512,6 +513,7 @@ header{
     top: 60px;
     left: 0;
     background: #112F41;
+    height: 70%;
     width:100%;}
   .menu ul {padding-inline-start: 20px; list-style-type: none; list-style-image: none; width: 100%;}
   .menu li {display: block;   margin: 0; padding:10px 15px 10px 15px; margin-right: 20px;}

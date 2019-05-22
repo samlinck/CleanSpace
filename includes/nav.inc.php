@@ -11,7 +11,6 @@
       <a href="./locations.php"><li>My Locations</li></a>
       <a href="#"><li>Profile</li></a>
       <a href="#"><li>Terms</li></a>
-      <a href="#"><li>Settings</li></a>
       <a href="./logout.php"><li class="menu__logout">Logout</li></a>
     </ul>
 </div> 
