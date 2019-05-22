@@ -4,7 +4,7 @@
     <span></span>
     <span></span>
   </div>
-   <a class="logoSmall" xhref="index.php">CleanSpace</a>
+   <a class="logoSmall" href="index.php">CleanSpace</a>
    <div class="menu">
     <ul>
       <a href="./index.php"><li>Home</li></a>

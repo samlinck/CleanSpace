@@ -3,6 +3,7 @@
     $spaceId = $_GET['location_id'];
 
     if(isset($_GET['issue_type'])) {
+        // define issue
         $issueType = $_GET['issue_type'];
         $issue = new Issue();
 
@@ -13,8 +14,7 @@
         $activeType = $_GET['issue_type'];
         Issue::getActiveType($activeType);
 
-        
-
+        // issue to db and relocate
         if (!empty($_POST)) {
             $issue->setIssueDesc($_POST['issue']);
             $issue->createIssue();
