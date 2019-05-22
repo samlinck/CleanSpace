@@ -210,7 +210,7 @@
         {
             try {
                 $conn = Db::getInstance();
-                $statement = $conn->prepare('select * from space');
+                $statement = $conn->prepare('select * from space ORDER BY zip DESC');
                 $statement->execute();
                 $result = $statement->fetchAll();
 
