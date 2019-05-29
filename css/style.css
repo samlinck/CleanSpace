@@ -282,6 +282,7 @@ a div[data-member='4'] {
 .space-problems {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .space-problems div {

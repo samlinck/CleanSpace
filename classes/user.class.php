@@ -185,7 +185,7 @@
                 }
         }
 
-        function canILogin(){
+        public function canILogin(){
                 $conn = Db::getInstance();
                 $statement = $conn->prepare("select * from user where email = :email");
                 $statement->bindParam(":email", $this->email);
@@ -200,7 +200,7 @@
                 }
         }
 
-        function getUserById($id){
+        public static function getUserById($id){
                 $conn = Db::getInstance();
                 $statement = $conn->prepare('select * from user where id = :id');
                 $statement->bindParam(':id', $id);

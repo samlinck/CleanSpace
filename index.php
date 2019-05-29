@@ -1,6 +1,13 @@
 <?php
-require_once 'bootstrap.php';
-User::checkLogin();
+require_once('bootstrap.php');
+// User::checkLogin();
+if (isset($_SESSION['user'])) {
+    //logged in user
+    //echo "😎";
+} else {
+    //no logged in user
+    header('Location: login.php');
+}
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
