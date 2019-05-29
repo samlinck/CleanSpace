@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php 
+    $spaceId = $_GET['location_id'];
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +15,7 @@
         <?php include_once("includes/nav.inc.php"); ?>
     </header>
     <div class="member-container large-container">
-        <a href="location.php" class="go-back"><img src="./images/cross.svg" alt=""></a>
+        <a href="location.php?location_id=<?php echo $spaceId; ?>" class="go-back"><img src="./images/cross.svg" alt=""></a>
         <p>Members</p>
         <p class="title-left">admins</p>
         <div class="space-problems admins">

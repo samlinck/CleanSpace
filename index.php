@@ -8,6 +8,9 @@ if (isset($_SESSION['user'])) {
     //no logged in user
     header('Location: login.php');
 }
+// get random tip 
+$tip = Challenge::getRandomTip();
+$singleTip = $tip['tip'];
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +27,8 @@ if (isset($_SESSION['user'])) {
     </header>
     <div class="large-container">
         <div class="tip">
-            <h3>Tip of the day</h3>
-            <p>Gebruik een drinkbus ipv plastic flesjes</p>
+            <h3>Tip for a better lifestyle</h3>
+            <p><?php echo $singleTip; ?></p>
         </div>
         <div class="create">
             <a href="create.php"> 

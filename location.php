@@ -5,8 +5,10 @@
     $space = Space::getSpaceInfo($spaceId);
 
     $space = array_shift($space);
+    //issues
     $issues = Issue::getIssueBySpaceId($spaceId);
-    // print_r($issues); exit();
+    //challenges
+    $challenges = Challenge::getChallengeBySpaceId($spaceId);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +38,7 @@
                 <a href="#">
                     <div data-member="3"></div>
                 </a>
-                <a href="member.php">
+                <a href="member.php?location_id=<?php echo $spaceId; ?>">
                     <div data-member="4">
                         <p class="bollekes">...</p>
                     </div>
@@ -49,35 +51,35 @@
                 <a href="issue.php?issue_id=<?php echo $i['id'];?>">
                     <div><img src="./images/<?php echo $i['issueType']; ?>.svg" alt=""></div>
                 </a>
-                <a href="#">
             <?php endforeach; ?>
                 <a href="newIssue.php?location_id=<?php echo $space['id'];?>"><div class="make-problem"></div></a>
-            </a>
         </div>
-        <p class="title-left" style="display: none">challenges</p>
-        <div class="space-problems space-challenges" style="display: none">
-        <a href="#">
-                <div></div>
-            </a>
-            <a href="#">
-                <div></div>
-            </a>
-            <a href="#">
-                <div></div>
-            </a>
-            <a href="#">
-                <div class="make-problem"></div>
-            </a>
+        <p class="title-left">challenges</p>
+        <div class="space-problems space-challenges">
+            <?php foreach ($challenges as $c): ?>
+                <a href="challenge.php?challenge_id=<?php echo $c['id'];?>">
+                    <div><img src="./images/<?php echo $c['challengeType']; ?>.svg" alt=""></div>
+                </a>
+            <?php endforeach; ?>
+                <a href="newChallenge.php?location_id=<?php echo $space['id'];?>"><div class="make-problem"></div></a>
         </div>
-        <p style="display: none">Progress</p>
-        <div class="space-progress" style="display :none">
-            <div class="likes">
-                <img src="./images/like.svg" alt="">
-                <p class="like">0</p>
+        <p class="title-left">Badges</p>
+        <div class="badges">
+           <div class="badge">
+               <img src="./images/afval.svg" alt="">
+               <span>0</span>
             </div>
-            <div class="dislikes">
-                <img src="./images/dislike.svg" alt="">
-                <p class="dislike">-1</p>
+            <div class="badge">
+               <img src="./images/energie.svg" alt="">
+               <span>0</span>
+            </div>
+            <div class="badge">
+               <img src="./images/groen.svg" alt="">
+               <span>0</span>
+            </div>
+            <div class="badge">
+               <img src="./images/water.svg" alt="">
+               <span>0</span>
             </div>
         </div>
     </div>

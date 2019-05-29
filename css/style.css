@@ -307,10 +307,6 @@ div.make-problem {
 
 /* backgroundimage volgens data attr, zo kan je met php de juiste erin zetten */
 
-.space-progress {
-    display: flex;
-    justify-content: space-around;
-}
 
 .member-container {
     width: 70%;
@@ -369,6 +365,20 @@ textarea.field {
     background-color: white;
 }
 
+
+.badge {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.badge span {
+    margin-left: 50px;    
+    font-weight: 900;
+    font-size: 20px;
+}
+
 .button--yellow {
     background-color: #F2AF36;
 }
@@ -377,8 +387,13 @@ textarea.field {
     background-color: #068587;
 }
 
-.field--small {
-    width: 60%;
+input.field--small {
+    width: 100%;
+}
+
+input.field--mini {
+    width: 100px;
+    margin-left: 50px;
 }
 
 .field--big {
@@ -398,6 +413,15 @@ textarea.field {
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
+}
+
+label.input--small {
+    margin-left: 70px;
+}
+
+input:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #719ECE;
 }
 /* locations */
 .myLocations {

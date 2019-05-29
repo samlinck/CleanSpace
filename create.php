@@ -9,25 +9,26 @@
     }
 
     if (!empty($_POST)) {
-        $spaceLocation = $_POST['location'];
         $space = new Space();
+
         // get specific location
-        $pieces = explode(",", $spaceLocation);
-        $stukken = explode(" ", $pieces[0]);
-        $street = $stukken[0];
-        $number = $stukken[1];
-        $dorp = explode(" ", $pieces[1]);
-        $zip = $dorp[1];
-        $city = $dorp[2];
+        // $pieces = explode(",", $spaceLocation);
+        // $stukken = explode(" ", $pieces[0]);
+        // $street = $stukken[0];
+        // $number = $stukken[1];
+        // $dorp = explode(" ", $pieces[1]);
+        // $zip = $dorp[1];
+        // $city = $dorp[2];
+
         // get user_id
         $userId = $_SESSION['user'][0];
 
         //set info
         $space->setSpaceName($_POST['spaceName']);
-        $space->setStreet($street);
-        $space->setNumber($number);
-        $space->setZip($zip);
-        $space->setCity($city);
+        $space->setStreet($_POST['street']);
+        $space->setNumber($_POST['number']);
+        $space->setZip($_POST['zip']);
+        $space->setCity($_POST['city']);
         $space->setSpaceType($spaceType);
 
         // info about space to db and get id from space
@@ -66,10 +67,27 @@
         <form action="" method="post">
         <label class="input" for="spaceName">Space Name</label>
         <input type="text" name="spaceName" id="spaceName" class="field">
-        <label class="input" for="location">Location</label>
         <div class="flex-container">
-            <input type="text" id="location" name="location" class="field field--small">
-            <img class="location" src="./images/location.svg" alt=""> 
+            <div>
+                <label class="input" for="street">Street</label>
+                <input type="text" id="street" name="street" class="field field--small">
+            </div>
+            <div>
+                <label class="input input--small" for="number">Number</label>
+                <input type="text" id="number" name="number" class="field field--mini">
+            </div>
+            <!-- <img class="location" src="./images/location.svg" alt="">  -->
+        </div>
+        <div class="flex-container">
+            <div>
+                <label class="input" for="city">City</label>
+                <input type="text" id="city" name="city" class="field field--small">
+            </div>
+            <div>
+                <label class="input input--small" for="zip">ZIP</label>
+                <input type="text" id="zip " name="zip" class="field field--mini">
+                <!-- <img class="location" src="./images/location.svg" alt="">  -->
+            </div>
         </div>
         <label class="input" for="admins">Admin</label>
         <div class="flex-container">
@@ -78,7 +96,7 @@
         </div>
         <input type="submit" value="Create" class="btn">
     </div>
-        <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
         <script src="https://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
         <script src="https://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
@@ -109,6 +127,6 @@
             function locate(space) {
                 $("#location").val(space);
             }
-        </script>
+        </script> -->
 </body>
 </html>
