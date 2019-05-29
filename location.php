@@ -24,6 +24,7 @@
         <?php include_once("includes/nav.inc.php"); ?>
     </header>
     <div class="single-location large-container">
+        <button class="join">Join Space</button>
         <div class="space-info">
             <img src="./images/<?php echo $space['spaceType'];?>.svg" alt="" class="space-logo">
             <h2><?php echo $space['spaceName'];?></h2>
@@ -83,5 +84,7 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+    <script language="JavaScript" type="text/javascript" src="js/join_space.js"></script>
 </body>
 </html>
