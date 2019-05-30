@@ -248,5 +248,48 @@
                     }
         } 
 
+        public static function checkAdmin($spaceId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select user_id from spaceadmins where space_id= :space_id');
+                        $statement->bindParam(':space_id', $spaceId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
+
+        public static function checkCrew($spaceId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select user_id from spacecrew where space_id= :space_id');
+                        $statement->bindParam(':space_id', $spaceId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
+
+        public static function canJoin($userId, $admins, $crew) {
+                if (in_array($userId, $admins) || in_array($userId, $crew) ) {
+                        return "invisible";
+                    } else {
+                        return "";
+                    }
+        }
+
+        public static function canAdd($userId, $admins, $crew) {
+                if (in_array($userId, $admins) || in_array($userId, $crew) ) {
+                        return "visible";
+                    } else {
+                        return "invisible";
+                    }
+        }
         
     }

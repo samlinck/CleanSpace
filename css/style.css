@@ -380,18 +380,31 @@ textarea.field {
     background-color: white;
 }
 
+.badges {
+    display: flex;
+    justify-content: space-around;
+}
 
 .badge {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 20px;
     align-items: center;
+    /* margin-left: 10px; */
 }
 
 .badge span {
-    margin-left: 50px;    
+    margin-left: 20px;    
     font-weight: 900;
     font-size: 20px;
+}
+
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: block;
 }
 
 .button--yellow {
@@ -434,7 +447,8 @@ label.input--small {
     margin-left: 70px;
 }
 
-input:focus {
+
+input:focus, button:focus, textarea:focus {
     outline: none !important;
     box-shadow: 0 0 10px #719ECE;
 }

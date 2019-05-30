@@ -1,6 +1,5 @@
 // on button query and refresh
 $('.join').on('click', function() {
-    console.log("hello");
     let space = window.location.search.substr(1);
     let spaceArr = space.split("=", 2);
     let spaceId = spaceArr[1];
@@ -13,5 +12,8 @@ $('.join').on('click', function() {
             spaceId: spaceId
         },
         dataType: 'json'
-    })
+    }).done(function() {
+        console.log("wow");
+        $('.join').fadeOut();
+      });
 })

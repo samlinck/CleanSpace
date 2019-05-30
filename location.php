@@ -1,6 +1,7 @@
 <?php 
     require_once("bootstrap.php");
 
+    $userId = $_SESSION['user'][0];
     $spaceId = $_GET['location_id'];
     $space = Space::getSpaceInfo($spaceId);
 
@@ -9,6 +10,16 @@
     $issues = Issue::getIssueBySpaceId($spaceId);
     //challenges
     $challenges = Challenge::getChallengeBySpaceId($spaceId);
+    // CAN SEE JOIN?
+    //get admin bij space_id
+    $admins = Space::checkAdmin($spaceId);
+    $admins = array_column($admins,'user_id');
+    // get crew by space_id
+    $crew = Space::checkCrew($spaceId);
+    $crew = array_column($crew, 'user_id');
+    // can join?
+    $canSee = Space::canJoin($userId, $admins, $crew);
+    $canAdd = Space::canAdd($userId, $admins, $crew);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +35,7 @@
         <?php include_once("includes/nav.inc.php"); ?>
     </header>
     <div class="single-location large-container">
-        <button class="join">Join Space</button>
+        <button class="join <?php echo $canSee; ?>">Join Space</button>
         <div class="space-info">
             <img src="./images/<?php echo $space['spaceType'];?>.svg" alt="" class="space-logo">
             <h2><?php echo $space['spaceName'];?></h2>
@@ -53,7 +64,7 @@
                     <div><img src="./images/<?php echo $i['issueType']; ?>.svg" alt=""></div>
                 </a>
             <?php endforeach; ?>
-                <a href="newIssue.php?location_id=<?php echo $space['id'];?>"><div class="make-problem"></div></a>
+                <a href="newIssue.php?location_id=<?php echo $space['id'];?>" class="<?php echo $canAdd; ?>"><div class="make-problem"></div></a>
         </div>
         <p class="title-left">challenges</p>
         <div class="space-problems space-challenges">
@@ -62,9 +73,9 @@
                     <div><img src="./images/<?php echo $c['challengeType']; ?>.svg" alt=""></div>
                 </a>
             <?php endforeach; ?>
-                <a href="newChallenge.php?location_id=<?php echo $space['id'];?>"><div class="make-problem"></div></a>
+                <a href="newChallenge.php?location_id=<?php echo $space['id'];?>" class="<?php echo $canAdd; ?>"><div class="make-problem"></div></a>
         </div>
-        <p class="title-left">Badges</p>
+        <p>Space Badges</p>
         <div class="badges">
            <div class="badge">
                <img src="./images/afval.svg" alt="">

@@ -9,3 +9,4 @@
     $space->setUserId($userId);
     $space->setSpaceId($spaceId);
     $space->createSpaceCrew();
+  
