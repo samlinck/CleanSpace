@@ -191,7 +191,7 @@
                 $statement->bindParam(":email", $this->email);
                 $statement->execute();
                 $result = $statement->fetchAll();
-                var_dump($result);
+                // var_dump($result);
                 if(!empty($result)){
                     if(password_verify($this->password, $result[0]['password'])){
                         return array($result[0]['id'], $result[0]['username'], $result[0]['email']);

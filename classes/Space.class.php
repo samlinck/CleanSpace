@@ -206,6 +206,19 @@
                     }
         }
 
+        public function createSpaceCrew() {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('insert into spacecrew (space_id, user_id) values (:spaceId, :userId)');
+                        $statement->bindParam(':spaceId', $this->spaceId);
+                        $statement->bindParam(':userId', $this->userId);
+                        $statement->execute();
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
+
         public static function getSpaces()
         {
             try {
