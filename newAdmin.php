@@ -3,8 +3,11 @@
 
     $spaceId = $_GET['location_id'];
     $getCrew = Space::getCrew($spaceId);
-    $userId = array_column($getCrew, 'id');
-    $getCrew = array_column($getCrew,'username');
+    
+    // $userId = array_column($getCrew, 'id');
+    
+    // $getCrew = array_column($getCrew,'username');
+ 
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,11 +33,9 @@
             <?php $random = rand(1,4); ?>
             <div class="user" id="user">
                 <div>
-                    <?php foreach($userId as $id): ?>
-                        <a href="add.php?location_id=<?php echo $spaceId.'&crew_id='.$id; ?>"><img src="./images/avatar<?php echo $random; ?>.svg" alt=""></a>
-                    <?php endforeach; ?> 
+                        <a href="add.php?location_id=<?php echo $spaceId.'&crew_id='.$c['id']; ?>"><img src="./images/avatar<?php echo $random; ?>.svg" alt=""></a>
                 </div>
-                <p><?php echo $c; ?></p>
+                <p><?php echo $c['username']; ?></p>
             </div>
         <?php endforeach; ?> 
         </div>

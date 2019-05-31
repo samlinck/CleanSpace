@@ -328,6 +328,21 @@
                     }
         }
 
+        public static function deleteCrew($spaceId, $userId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('delete from spacecrew where space_id= :space_id and user_id= :user_id');
+                        $statement->bindParam(':space_id', $spaceId);
+                        $statement->bindParam(':user_id', $userId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
+
         
         
     }

@@ -5,6 +5,10 @@
 
     $get = $_SESSION['user'][0];
 
+    //inner join van space en spaceadmins
+
+    // inner join van space en spacecrew
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>

@@ -12,6 +12,7 @@
     $space->createSpaceAdmin();
 
     // delete from crew
+    Space::deleteCrew($spaceId,$userId);
     header( "refresh:3; url=location.php?location_id=".$spaceId );
 ?><!DOCTYPE html>
 <html lang="en">
