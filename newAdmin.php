@@ -2,18 +2,9 @@
     require_once("bootstrap.php");
 
     $spaceId = $_GET['location_id'];
-    $getAdmins = Space::getAdmins($spaceId);
-    $getAdmins = array_column($getAdmins,'username');
     $getCrew = Space::getCrew($spaceId);
+    $userId = array_column($getCrew, 'id');
     $getCrew = array_column($getCrew,'username');
-    // only admin can add new admin
-    $admins = Space::checkAdmin($spaceId);
-    $admins = array_column($admins,'user_id');
-   
-    // can join?
-    $userId = $_SESSION['user'][0];
-    $canSee = Space::onlyAdmin($userId, $admins);
-    
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,21 +21,8 @@
     </header>
     <div class="member-container large-container">
         <a href="location.php?location_id=<?php echo $spaceId; ?>" class="go-back"><img src="./images/cross.svg" alt=""></a>
-        <p>Space Crew</p>
-        <p class="title-left">admins</p>
-        <div class="space-problems admins">
-        <?php foreach($getAdmins as $a): ?>
-            <!-- for random avatar -->
-            <?php $random = rand(1,4); ?>
-            <div class="user" id="user">
-                <div>
-                    <img src="./images/avatar<?php echo $random; ?>.svg" alt="">
-                </div>
-                <p><?php echo $a; ?></p>
-            </div>
-        <?php endforeach; ?>
-        <a href="newAdmin.php?location_id=<?php echo $spaceId;?>" class="<?php echo $canSee; ?>"><div class="make-problem adjust"></div></a>    
-        </div>
+        <p>Click to add as admin</p>
+        
         <p class="title-left">members</p>
         <div class="space-problems members">
         <?php foreach($getCrew as $c): ?>
@@ -52,7 +30,9 @@
             <?php $random = rand(1,4); ?>
             <div class="user" id="user">
                 <div>
-                    <img src="./images/avatar<?php echo $random; ?>.svg" alt="">
+                    <?php foreach($userId as $id): ?>
+                        <a href="add.php?location_id=<?php echo $spaceId.'&crew_id='.$id; ?>"><img src="./images/avatar<?php echo $random; ?>.svg" alt=""></a>
+                    <?php endforeach; ?> 
                 </div>
                 <p><?php echo $c; ?></p>
             </div>

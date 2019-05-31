@@ -39,7 +39,7 @@
         <div class="space-info">
             <img src="./images/<?php echo $space['spaceType'];?>.svg" alt="" class="space-logo">
             <h2><?php echo $space['spaceName'];?></h2>
-            <p>Members</p>
+            <p>Space Crew</p>
             <div class="members">
                 <a href="member.php?location_id=<?php echo $spaceId; ?>">
                     <div data-member="1"></div>

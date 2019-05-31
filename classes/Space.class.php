@@ -292,6 +292,14 @@
                     }
         }
 
+        public static function onlyAdmin($userId, $admins) {
+                if (in_array($userId, $admins)) {
+                        return "visible";
+                    } else {
+                        return "invisible";
+                    }
+        }
+
         public static function getAdmins($spaceId) {
                 try {
                         $conn = Db::getInstance();
@@ -309,7 +317,7 @@
         public static function getCrew($spaceId) {
                 try {
                         $conn = Db::getInstance();
-                        $statement = $conn->prepare('select user.username from spacecrew inner join user on user.id = spacecrew.user_id where space_id= :space_id');
+                        $statement = $conn->prepare('select user.username, user.id from spacecrew inner join user on user.id = spacecrew.user_id where space_id= :space_id');
                         $statement->bindParam(':space_id', $spaceId);
                         $statement->execute();
                         
@@ -319,5 +327,7 @@
             
                     }
         }
+
+        
         
     }
