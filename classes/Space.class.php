@@ -291,5 +291,33 @@
                         return "invisible";
                     }
         }
+
+        public static function getAdmins($spaceId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select user.username from spaceadmins inner join user on user.id = spaceadmins.user_id where space_id= :space_id');
+                        $statement->bindParam(':space_id', $spaceId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
+
+        public static function getCrew($spaceId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select user.username from spacecrew inner join user on user.id = spacecrew.user_id where space_id= :space_id');
+                        $statement->bindParam(':space_id', $spaceId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
         
     }

@@ -259,7 +259,7 @@ div.create a {
     height: 50px;
     width: 50px;
     border-radius: 100%;
-    border: 3px solid #112F41;
+    /* border: 3px solid #112F41; */
     margin-left: -20px;
     background: #dddddd;
     position: relative;
@@ -268,26 +268,24 @@ div.create a {
 a div[data-member='1'] {
     margin-left: 0;
     z-index: 5;
+    background-image: url(../images/avatar1.svg);
 }
 
 a div[data-member='2'] {
     z-index: 4;
+    background-image: url(../images/avatar2.svg);
 }
 
 a div[data-member='3'] {
     z-index: 3;
+    background-image: url(../images/avatar3.svg);
 }
 
 a div[data-member='4'] {
     z-index: 2;
     display: flex;
     justify-content: center;
-}
-
-.bollekes {
-    margin-left: 13px;
-    align-self: center;
-    margin-top: 10px;
+    background-image: url(../images/avatar4.svg);
 }
 
 .large-container p.title-left {
@@ -313,11 +311,30 @@ a div[data-member='4'] {
     max-width: 100%;
 }
 
+.space-problems div p {
+    font-size: 12px;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#user {
+    margin-top: 20px;
+}
+
 div.make-problem {
     background-image: url(../images/plus.svg);
     background-position: center;
     background-size: cover;
     border: none;
+}
+
+div.adjust {
+    margin-top: -4px;
 }
 
 /* backgroundimage volgens data attr, zo kan je met php de juiste erin zetten */

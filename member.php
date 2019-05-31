@@ -1,5 +1,12 @@
 <?php 
+    require_once("bootstrap.php");
+
     $spaceId = $_GET['location_id'];
+    $getAdmins = Space::getAdmins($spaceId);
+    $getAdmins = array_column($getAdmins,'username');
+    $getCrew = Space::getCrew($spaceId);
+    $getCrew = array_column($getCrew,'username');
+    // print_r($getAdmins); exit();
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,25 +26,30 @@
         <p>Members</p>
         <p class="title-left">admins</p>
         <div class="space-problems admins">
-            <div></div>
-            <div></div>
-            <div></div>
+        <?php foreach($getAdmins as $a): ?>
+            <!-- for random avatar -->
+            <?php $random = rand(1,4); ?>
+            <div class="user" id="user">
+                <div>
+                    <img src="./images/avatar<?php echo $random; ?>.svg" alt="">
+                </div>
+                <p><?php echo $a; ?></p>
+            </div>
+        <?php endforeach; ?>
+        <a href="newAdmin.php?location_id=<?php echo $spaceId;?>" class="<?php echo $canAdd; ?>"><div class="make-problem adjust"></div></a>    
         </div>
         <p class="title-left">members</p>
         <div class="space-problems members">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <?php foreach($getCrew as $c): ?>
+            <!-- for random avatar -->
+            <?php $random = rand(1,4); ?>
+            <div class="user" id="user">
+                <div>
+                    <img src="./images/avatar<?php echo $random; ?>.svg" alt="">
+                </div>
+                <p><?php echo $c; ?></p>
+            </div>
+        <?php endforeach; ?> 
         </div>
     </div>
 </body>

@@ -41,19 +41,17 @@
             <h2><?php echo $space['spaceName'];?></h2>
             <p>Members</p>
             <div class="members">
-                <a href="#">
+                <a href="member.php?location_id=<?php echo $spaceId; ?>">
                     <div data-member="1"></div>
                 </a>
-                <a href="#">
+                <a href="member.php?location_id=<?php echo $spaceId; ?>">
                     <div data-member="2"></div>
                 </a>
-                <a href="#">
+                <a href="member.php?location_id=<?php echo $spaceId; ?>">
                     <div data-member="3"></div>
                 </a>
                 <a href="member.php?location_id=<?php echo $spaceId; ?>">
-                    <div data-member="4">
-                        <p class="bollekes">...</p>
-                    </div>
+                    <div data-member="4"></div>
                 </a>
             </div>
         </div>
