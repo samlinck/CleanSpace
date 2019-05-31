@@ -1,14 +1,10 @@
 <?php
     require_once 'bootstrap.php';
 
-    $space = new Space();
+    $userId = $_SESSION['user'][0];
 
-    $get = $_SESSION['user'][0];
-
-    //inner join van space en spaceadmins
-
-    // inner join van space en spacecrew
-
+    $mySpaces = Space::getManaging($userId);
+    $joinedSpaces = Space::getJoined($userId);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,24 +24,16 @@
         <p class="myLocations">Managing</p>
         <div class="list-container">       
             <ul class="list-items" id="listupdates">
-            <?php 
-                $spaces = $space->getSpaces();
-                foreach($spaces as $s): 
-            ?>
-            <a href="location.php?location_id=<?php echo $s['id'];?>"> <li class="location-list"><img src="images/<?php echo $s['spaceType'];?>.svg" alt="locationIcon" class="location-icon"><span class="spaceName"><?php echo $s['spaceName'];?></span></li></a>
-
+            <?php foreach($mySpaces as $s): ?>
+                <a href="location.php?location_id=<?php echo $s['id'];?>"> <li class="location-list"><img src="images/<?php echo $s['spaceType'];?>.svg" alt="locationIcon" class="location-icon"><span class="spaceName"><?php echo $s['spaceName'];?></span></li></a>
             <?php endforeach; ?>
             </ul>
         </div>
         <p class="myLocations">Joined</p>
         <div class="list-container">       
             <ul class="list-items" id="listupdates">
-            <?php 
-                $spaces = $space->getSpaces();
-                foreach($spaces as $s): 
-            ?>
-            <li class="location-list"><img src="images/<?php echo $s['spaceType'];?>.svg" alt="locationIcon" class="location-icon"> <a href="location.php?location_id=<?php echo $s['id'];?>" class="spaceName"><?php echo $s['spaceName'];?></a></li>
-
+            <?php foreach($joinedSpaces as $s): ?>
+                <li class="location-list"><img src="images/<?php echo $s['spaceType'];?>.svg" alt="locationIcon" class="location-icon"> <a href="location.php?location_id=<?php echo $s['id'];?>" class="spaceName"><?php echo $s['spaceName'];?></a></li>
             <?php endforeach; ?>
             </ul>
         </div>

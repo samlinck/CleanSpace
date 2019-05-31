@@ -343,6 +343,32 @@
                     }
         }
 
-        
+        public static function getManaging($userId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select space.id, space.spaceName, space.spaceType from space inner join spaceadmins on space.id = spaceadmins.space_id where user_id= :user_id');
+                        $statement->bindParam(':user_id', $userId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
+
+        public static function getJoined($userId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select space.id, space.spaceName, space.spaceType from space inner join spacecrew on space.id = spacecrew.space_id where user_id= :user_id');
+                        $statement->bindParam(':user_id', $userId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
         
     }

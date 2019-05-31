@@ -3,11 +3,6 @@
 
     $spaceId = $_GET['location_id'];
     $getCrew = Space::getCrew($spaceId);
-    
-    // $userId = array_column($getCrew, 'id');
-    
-    // $getCrew = array_column($getCrew,'username');
- 
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
