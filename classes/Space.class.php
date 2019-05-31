@@ -272,6 +272,33 @@
                         return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                 } catch ( Throwable $t ) {
                         return false;
+                    }
+        }
+
+        public static function checkSpace($userId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select user_id from spacecrew where space_id= :space_id');
+                        $statement->bindParam(':space_id', $spaceId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
+
+        public static function getSpacesLeft($userId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select * from space left join spaceadmins on space.id = spaceadmins.space_id left join spacecrew on space.id = spacecrew.space_id where spaceadmins.user_id <> :user_Id or spacecrew.user_id <> :user_Id order by city asc');
+                        $statement->bindParam(':user_Id', $userId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
             
                     }
         }
