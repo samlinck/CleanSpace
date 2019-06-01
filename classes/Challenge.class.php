@@ -83,7 +83,7 @@
         public static function getChallengeBySpaceId($spaceId) {
             try {
                 $conn = Db::getInstance();
-                $statement = $conn->prepare('select * from challenge where space_id = :space_id');
+                $statement = $conn->prepare('select * from challenge where space_id = :space_id and completed= 0');
                 $statement->bindParam('space_id', $spaceId);
                 $statement->execute();
 
@@ -119,44 +119,15 @@
             }
         }
 
-        public static function getActiveType($activeType) {
+        public static function completeChallenge($challengeId) {
                 try {
-                        switch ($activeType) {
-                                case "afval":
-                                    echo '<style type="text/css">
-                                    #afval {
-                                        border: 5px solid green;
-                                        border-radius: 100%;
-                                    }
-                                    </style>';
-                                    break;
-                                case "energie":
-                                echo '<style type="text/css">
-                                #energie {
-                                    border: 5px solid green;
-                                    border-radius: 100%;
-                                }
-                                </style>';
-                                    break;
-                                case "groen":
-                                echo '<style type="text/css">
-                                #groen {
-                                    border: 5px solid green;
-                                    border-radius: 100%;
-                                }
-                                </style>';
-                                    break;
-                                case "water":
-                                echo '<style type="text/css">
-                                #water {
-                                    border: 5px solid green;
-                                    border-radius: 100%;
-                                }
-                                </style>';
-                                    break;
-                    }
-                } catch( Throwable $t ) {
-                        return false;
+                    $conn = Db::getInstance();
+                    $statement = $conn->prepare('update challenge set completed= 1 where id = :challenge_id');
+                    $statement->bindParam('challenge_id', $challengeId);
+                    $statement->execute();       
+            } catch ( Throwable $t ) {
+                    return false;
+        
                 }
-        }
+            }
     }

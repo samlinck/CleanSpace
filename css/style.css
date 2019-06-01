@@ -124,7 +124,7 @@ input.field {
     width: 100%;
 }
 
-input.btn {
+a.btn, input.btn {
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;

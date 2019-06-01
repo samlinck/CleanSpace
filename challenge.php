@@ -21,11 +21,12 @@
     <div class="single-location large-container">
         <div class="add-issue">
             <a href="location.php?location_id=<?php echo $challengeInfo['space_id'];?>"><img src="./images/cross.svg" alt=""></a>
-            <p>Add Challenge</p>
+            <p>Challenge</p>
             <img src="./images/<?php echo $challengeInfo['challengeType']; ?>.svg" alt="">
             <div class="description">
                 <p><?php echo $challengeInfo['challengeDesc'];?></p>
             </div>
+            <a href="complete.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" class="btn">Challenge completed?</a>
         </div>
     </div>
 </body>
