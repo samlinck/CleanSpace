@@ -138,6 +138,10 @@ a.btn, input.btn {
     width: 50%;
 }
 
+a.btn--delete{
+    background-color: #ED563B; 
+}
+
 .checkboxContainer {
     width: 200px;
     display: block;

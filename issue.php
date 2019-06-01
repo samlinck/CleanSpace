@@ -4,6 +4,13 @@
     // static function to get whole issue
     $issueInfo = Issue::getIssueById($issueId);
     $issueInfo = array_shift($issueInfo);
+
+    // can delete?
+    $spaceId= $issueInfo['space_id'];
+    $admins = Space::checkAdmin($spaceId);
+    $admins = array_column($admins,'user_id');
+    $userId = $_SESSION['user'][0];
+    $canSee = Space::onlyAdmin($userId, $admins);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +38,7 @@
             <div class="description">
                 <p><?php echo $issueInfo['issueDesc'];?></p>
             </div>
+            <a href="deleteIssue.php?location_id=<?php echo $issueInfo['space_id'];?>&issue_id=<?php echo $issueInfo['id'];?>" class="btn btn--delete <?php echo $canSee ;?>">Delete this issue!</a>
         </div>
     </div>
 </body>

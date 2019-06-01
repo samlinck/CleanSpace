@@ -106,4 +106,16 @@
     
             }
         }
+
+        public static function deleteIssue($issueId) {
+                try {
+                    $conn = Db::getInstance();
+                    $statement = $conn->prepare('delete from issue where id = :issue_id');
+                    $statement->bindParam('issue_id', $issueId);
+                    $statement->execute();       
+            } catch ( Throwable $t ) {
+                    return false;
+        
+                }
+            }
     }

@@ -5,7 +5,7 @@
     $challengeInfo = Challenge::getChallengeById($challengeId);
     $challengeInfo = array_shift($challengeInfo);
 
-    // can complete?
+    // can complete and delete?
     $spaceId= $challengeInfo['space_id'];
     $admins = Space::checkAdmin($spaceId);
     $admins = array_column($admins,'user_id');
@@ -33,7 +33,8 @@
             <div class="description">
                 <p><?php echo $challengeInfo['challengeDesc'];?></p>
             </div>
-            <a href="complete.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" class="btn <?php echo $canSee ;?>">Challenge completed?</a>
+            <a href="complete.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" class="btn">Challenge completed?</a>
+            <a href="deleteChallenge.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" class="btn btn--delete <?php echo $canSee ;?>">Delete this challenge!</a>
         </div>
     </div>
 </body>

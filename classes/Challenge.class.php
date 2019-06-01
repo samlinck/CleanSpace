@@ -131,6 +131,18 @@
                 }
             }
 
+            public static function deleteChallenge($challengeId) {
+                try {
+                    $conn = Db::getInstance();
+                    $statement = $conn->prepare('delete from challenge where id = :challenge_id');
+                    $statement->bindParam('challenge_id', $challengeId);
+                    $statement->execute();       
+            } catch ( Throwable $t ) {
+                    return false;
+        
+                }
+            }
+
             public static function countCompletedByType($type, $spaceId) {
                 try {
                     $conn = Db::getInstance();
