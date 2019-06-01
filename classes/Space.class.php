@@ -292,7 +292,7 @@
         public static function getSpacesLeft($userId) {
                 try {
                         $conn = Db::getInstance();
-                        $statement = $conn->prepare('select * from space left join spaceadmins on space.id = spaceadmins.space_id left join spacecrew on space.id = spacecrew.space_id where spaceadmins.user_id <> :user_Id or spacecrew.user_id <> :user_Id order by city asc');
+                        $statement = $conn->prepare('select space.* from space left join spaceadmins on space.id = spaceadmins.space_id where spaceadmins.user_id <> :user_Id union select space.* from space right join spacecrew on space.id = spacecrew.space_id where spacecrew.user_id <> :user_Id order by city asc');
                         $statement->bindParam(':user_Id', $userId);
                         $statement->execute();
                         
