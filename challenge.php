@@ -4,6 +4,13 @@
     // static function to get whole issue
     $challengeInfo = Challenge::getChallengeById($challengeId);
     $challengeInfo = array_shift($challengeInfo);
+
+    // can complete?
+    $spaceId= $challengeInfo['space_id'];
+    $admins = Space::checkAdmin($spaceId);
+    $admins = array_column($admins,'user_id');
+    $userId = $_SESSION['user'][0];
+    $canSee = Space::onlyAdmin($userId, $admins);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +33,7 @@
             <div class="description">
                 <p><?php echo $challengeInfo['challengeDesc'];?></p>
             </div>
-            <a href="complete.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" class="btn">Challenge completed?</a>
+            <a href="complete.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" class="btn <?php echo $canSee ;?>">Challenge completed?</a>
         </div>
     </div>
 </body>
