@@ -130,4 +130,18 @@
         
                 }
             }
+
+            public static function countCompletedByType($type, $spaceId) {
+                try {
+                    $conn = Db::getInstance();
+                    $statement = $conn->prepare('select COUNT(id) from challenge where space_id= :space_id and challengeType= :challengeType and completed= 1');
+                    $statement->bindParam('space_id', $spaceId);
+                    $statement->bindParam('challengeType', $type);
+                    $statement->execute();  
+                    return $statement->fetch();     
+            } catch ( Throwable $t ) {
+                    return false;
+        
+                }
+            }
     }
