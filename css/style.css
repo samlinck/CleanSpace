@@ -225,7 +225,10 @@ div.create a {
     justify-content: center;
     grid-gap: 10px;
 }
-
+.afval-active{
+	border: 5px solid green;
+	border-radius: 100%;
+}
 .location-grid div {
     justify-self: center;
 }

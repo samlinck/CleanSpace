@@ -12,15 +12,13 @@
 
         //aanduiding active
         $activeType = $_GET['issue_type'];
-        Issue::getActiveType($activeType);
+//         Issue::getActiveType($activeType);
 
         // issue to db and relocate
         if (!empty($_POST)) {
             $issue->setIssueDesc($_POST['issue']);
             $issue->createIssue();
-
             header('Location: location.php?location_id='.$spaceId);
-
         }
 
     }
@@ -40,20 +38,21 @@
     </header>
     <div class="single-location large-container">
         <div class="add-issue">
+	        <span id="type_id" data-id="<?= $issueType ?>"></span>
             <a href="location.php?location_id=<?php echo $spaceId;?>"><img src="./images/cross.svg" alt=""></a>
             <p>Add issue</p>
             <div class="issue-sorts">
-                <a href="newIssue.php?location_id=<?php echo $spaceId;?>&issue_type=afval" id="afval">
-                    <img src="./images/afval.svg" alt="">
+                <a class="afval-icon" href="newIssue.php?location_id=<?php echo $spaceId;?>&issue_type=afval">
+                    <img src="./images/afval.svg" alt="" id="afval">
                 </a>
-                <a href="newIssue.php?location_id=<?php echo $spaceId;?>&issue_type=energie" id="energie">
-                    <img src="./images/energie.svg" alt="">
+                <a class="afval-icon" href="newIssue.php?location_id=<?php echo $spaceId;?>&issue_type=energie">
+                    <img src="./images/energie.svg" alt="" id="energie">
                 </a>
-                <a href="newIssue.php?location_id=<?php echo $spaceId;?>&issue_type=groen" id="groen">
-                    <img src="./images/groen.svg" alt="">
+                <a class="afval-icon" href="newIssue.php?location_id=<?php echo $spaceId;?>&issue_type=groen">
+                    <img src="./images/groen.svg" alt="" id="groen">
                 </a>
-                <a href="newIssue.php?location_id=<?php echo $spaceId;?>&issue_type=water" id="water">
-                    <img src="./images/water.svg" alt="">
+                <a class="afval-icon" href="newIssue.php?location_id=<?php echo $spaceId;?>&issue_type=water">
+                    <img src="./images/water.svg" alt="" id="water">
                 </a>
             </div>
             <form action="" method="post" class="form--big">
@@ -63,5 +62,13 @@
             </form>
         </div>
     </div>
+    
+    
+    <script>
+	    $(function(){
+		    const type = $('#type_id').data('id');
+		    $('#' + type).addClass('afval-active');
+	    });
+	 </script>
 </body>
 </html>

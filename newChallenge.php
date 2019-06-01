@@ -12,7 +12,7 @@
 
         //aanduiding active
         $activeType = $_GET['challenge_type'];
-        Challenge::getActiveType($activeType);
+//         Challenge::getActiveType($activeType);
 
         // issue to db and relocate
         if (!empty($_POST)) {
@@ -39,21 +39,23 @@
         <?php include_once("includes/nav.inc.php"); ?>
     </header>
     <div class="single-location large-container">
+	    
+	        <span id="type_id" data-id="<?= $activeType ?>"></span>
         <div class="add-issue">
             <a href="location.php?location_id=<?php echo $spaceId;?>"><img src="./images/cross.svg" alt=""></a>
             <p>Add Challenge</p>
             <div class="issue-sorts">
-                <a href="newChallenge.php?location_id=<?php echo $spaceId;?>&challenge_type=afval" id="afval">
-                    <img src="./images/afval.svg" alt="">
+                <a href="newChallenge.php?location_id=<?php echo $spaceId;?>&challenge_type=afval">
+                    <img src="./images/afval.svg" alt="" id="afval">
                 </a>
-                <a href="newChallenge.php?location_id=<?php echo $spaceId;?>&challenge_type=energie" id="energie">
-                    <img src="./images/energie.svg" alt="">
+                <a href="newChallenge.php?location_id=<?php echo $spaceId;?>&challenge_type=energie">
+                    <img src="./images/energie.svg" alt="" id="energie">
                 </a>
-                <a href="newChallenge.php?location_id=<?php echo $spaceId;?>&challenge_type=groen" id="groen">
-                    <img src="./images/groen.svg" alt="">
+                <a href="newChallenge.php?location_id=<?php echo $spaceId;?>&challenge_type=groen">
+                    <img src="./images/groen.svg" alt="" id="groen">
                 </a>
-                <a href="newChallenge.php?location_id=<?php echo $spaceId;?>&challenge_type=water" id="water">
-                    <img src="./images/water.svg" alt="">
+                <a href="newChallenge.php?location_id=<?php echo $spaceId;?>&challenge_type=water">
+                    <img src="./images/water.svg" alt="" id="water">
                 </a>
             </div>
             <form action="" method="post" class="form--big">
@@ -63,5 +65,12 @@
             </form>
         </div>
     </div>
+    
+    <script>
+	    $(function(){
+		    const type = $('#type_id').data('id');
+		    $('#' + type).addClass('afval-active');
+	    });
+	 </script>
 </body>
 </html>

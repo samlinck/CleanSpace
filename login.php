@@ -9,7 +9,7 @@ if(!empty($_POST)){
 	$user->setEmail($email);
 	$user->setPassword($password);
 	//check if user can login (use function)
-	$data = $user->CanILogin();
+    $data = $user->CanILogin();
     if($data != false){
         $_SESSION['user'] = $data;
         // if ok -> redirect to index.php
