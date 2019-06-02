@@ -292,8 +292,8 @@
         public static function getSpacesLeft($userId) {
                 try {
                         $conn = Db::getInstance();
-                        $statement = $conn->prepare('select space.* from space left join spaceadmins on space.id = spaceadmins.space_id where spaceadmins.user_id <> :user_Id union select space.* from space right join spacecrew on space.id = spacecrew.space_id where spacecrew.user_id <> :user_Id order by city asc');
-                        $statement->bindParam(':user_Id', $userId);
+                        $statement = $conn->prepare('select * from space where id not in ( select space_id from spacecrew where spacecrew.user_id = :user_id union select space_id from spaceadmins where spaceadmins.user_id = :user_id) Order by city asc');
+                        $statement->bindParam(':user_id', $userId);
                         $statement->execute();
                         
                         return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -389,6 +389,45 @@
                         $conn = Db::getInstance();
                         $statement = $conn->prepare('select space.id, space.spaceName, space.spaceType from space inner join spacecrew on space.id = spacecrew.space_id where user_id= :user_id');
                         $statement->bindParam(':user_id', $userId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
+        public static function getUserSpaceId($userId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select space_id from spacecrew where user_id = :user_id');
+                        $statement->bindParam(':user_id', $userId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
+        public static function getAdminSpaceId($userId) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select space_id from spaceadmins where user_id = :user_id');
+                        $statement->bindParam(':user_id', $userId);
+                        $statement->execute();
+                        
+                        return $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                } catch ( Throwable $t ) {
+                        return false;
+            
+                    }
+        }
+        public static function getSpaceIds($spaceIds) {
+                try {
+                        $conn = Db::getInstance();
+                        $statement = $conn->prepare('select id from space where space.id <> :space_id');
+                        $statement->bindParam(':space_id', $spaceIds);
                         $statement->execute();
                         
                         return $result = $statement->fetchAll(PDO::FETCH_ASSOC);

@@ -5,7 +5,6 @@
 
     $get = $_SESSION['user'][0];
 
-
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +25,10 @@
         <div class="list-container">       
             <ul class="list-items" id="listupdates">
             <?php 
-                $spaces = $space->getSpacesLeft($get);
-                foreach($spaces as $s): 
-            ?>
+                $spacesLeft = $space->getSpacesLeft($get);
+                foreach($spacesLeft as $s):
+            ?>            
             <a href="location.php?location_id=<?php echo $s['id'];?>"> <li class="location-list"><img src="images/<?php echo $s['spaceType'];?>.svg" alt="locationIcon" class="location-icon"><span class="spaceName"><?php echo $s['spaceName'];?></span></li></a>
-
             <?php endforeach; ?>
             </ul>
         </div>
