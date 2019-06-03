@@ -13,6 +13,7 @@ if(!empty($_POST)){
     if($data != false){
         $_SESSION['user'] = $data;
         // if ok -> redirect to index.php
+        sleep(3.5);
         header('Location: index.php');
     }
     else {
@@ -30,6 +31,9 @@ if(!empty($_POST)){
     <title>Document</title>
 </head>
 <body>
+    <div id="loading">
+        <img src="gifs/loading.gif" alt="">
+    </div>
     <div class="large-container">
         <img src="images/logo_groot.png" alt="logo" class="logoBig">
         <h1>CleanSpace</h1>
@@ -46,10 +50,15 @@ if(!empty($_POST)){
                 <input type="text" id="email" name="email" class="field">
                 <label class="input" for="password">Password</label>
                 <input type="password" id="password" name="password" class="field">
-                <input type="submit" value="Login" class="btn">
+                <input type="submit" value="Login" class="btn" id="loginbtn">
             </form>
             <a href="register.php" class="noMember">Not a member yet?</a>
         </div>
     </div>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script language="JavaScript" type="text/javascript" src="js/loading.js"></script>
 </body>
 </html>
