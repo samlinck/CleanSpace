@@ -34,7 +34,7 @@ if(!empty($_POST)){
     <div id="loading">
         <img src="gifs/loading.gif" alt="">
     </div>
-    <div class="large-container">
+    <div class="large-container dissapear">
         <img src="images/logo_groot.png" alt="logo" class="logoBig">
         <h1>CleanSpace</h1>
         <div class="Login">
