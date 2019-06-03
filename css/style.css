@@ -510,7 +510,7 @@ ul{
 .location-icon {
     width: 55px;
 }
-a.spaceName {
+a.spaceName, span.spaceName {
     margin-left: 18%;
     text-align: left;
 }
