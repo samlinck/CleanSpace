@@ -301,7 +301,7 @@ a div[data-member='4'] {
 
 .space-problems {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -415,11 +415,11 @@ textarea.field {
     justify-content: flex-start;
     margin-bottom: 20px;
     align-items: center;
-    /* margin-left: 10px; */
 }
 
 .badge span {
-    margin-left: 20px;    
+    margin-left: 10px;
+    margin-right: 10px;    
     font-weight: 900;
     font-size: 20px;
 }
@@ -505,6 +505,11 @@ ul{
 .spaceName {
     margin-left: 18%;
 }
+
+.badge img {
+    width: 60px;
+}
+
 /* css for nav */
 header{
     background:#ffffff; 
@@ -640,9 +645,85 @@ header{
         background: #F5F5F5;
         padding: 30px;
         border-radius: 10px;
+        margin-top: 20px;
     }
 
-    .space-problems {
-        justify-content: flex-start;
+    .tip {
+        margin-top: 0px;
+    }
+
+    h2 {
+        font-size: 1.7em;
+        margin-bottom: 0px;
+        margin-top: 5px;
+    }
+
+    h3 {
+        font-size: 1.3em;
+        margin-top: 0;
+    }
+
+    .large-container p {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    div.create {
+        margin-top: 20px;
+    }
+
+    div.create a, .button a {
+        font-size: 1.6em;
+    }
+
+    .link--big {
+        padding: 15px 0px 15px 0px;
+    }
+
+    #navToggle {
+        width: 47px;
+        margin: 5px;  
+    }
+
+    input.field {
+        font-size: 16px;
+        padding: 5px 20px;
+    }
+
+    label.input {
+        padding-top: 10px;
+        font-size: 14px;
+    }
+
+    button, a.btn, input.btn {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    .join {
+        margin-top: 0px;
+    }
+
+    .location-grid {
+        margin-top: 0;
+    }
+
+    .large-container p.title-left {
+        text-align: left;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    .issue-sorts img {
+        width: 60px;
+    }
+    .members a div {
+        height: 40px;
+        width: 40px;
+    }
+
+    .space-logo {
+        width: 60px;
+        height: 60px;
     }
 }
