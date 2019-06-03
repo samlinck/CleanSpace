@@ -74,7 +74,7 @@
                     <div><img src="./images/<?php echo $i['issueType']; ?>.svg" alt=""></div>
                 </a>
             <?php endforeach; ?>
-                <a href="newIssue.php?location_id=<?php echo $space['id'];?>" class="<?php echo $canAdd; ?>"><div class="make-problem"></div></a>
+                <a href="newIssue.php?location_id=<?php echo $space['id'];?>" class="<?php echo $canAdd; ?> fade"><div class="make-problem"></div></a>
         </div>
         <p class="title-left">challenges</p>
         <div class="space-problems space-challenges">
@@ -83,7 +83,7 @@
                     <div><img src="./images/<?php echo $c['challengeType']; ?>.svg" alt=""></div>
                 </a>
             <?php endforeach; ?>
-                <a href="newChallenge.php?location_id=<?php echo $space['id'];?>" class="<?php echo $canAdd; ?>"><div class="make-problem"></div></a>
+                <a href="newChallenge.php?location_id=<?php echo $space['id'];?>" class="<?php echo $canAdd; ?> fade"><div class="make-problem"></div></a>
         </div>
         <p>Space Badges</p>
         <div class="badges">

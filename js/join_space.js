@@ -1,5 +1,8 @@
 // on button query and refresh
+console.log("cew");
 $('.join').on('click', function() {
+    $('.join').fadeOut();
+    $('.fade').fadeIn();
     let space = window.location.search.substr(1);
     let spaceArr = space.split("=", 2);
     let spaceId = spaceArr[1];
@@ -12,8 +15,5 @@ $('.join').on('click', function() {
             spaceId: spaceId
         },
         dataType: 'json'
-    }).done(function() {
-        console.log("wow");
-        $('.join').fadeOut();
-      });
+    });
 })
