@@ -33,9 +33,17 @@
             <div class="description">
                 <p><?php echo $challengeInfo['challengeDesc'];?></p>
             </div>
-            <a href="complete.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" class="btn">Challenge completed?</a>
+            <a href="complete.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" id="btncomplete" class="btn">Challenge completed?</a>
+            <div id="chalcomplete">
+                <img src="gifs/<?php echo $challengeInfo['challengeType']; ?>.gif" alt="">
+            </div>
             <a href="deleteChallenge.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" class="btn btn--delete <?php echo $canSee ;?>">Delete this challenge!</a>
         </div>
     </div>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script language="JavaScript" type="text/javascript" src="js/challenge_complete.js"></script>
 </body>
 </html>
