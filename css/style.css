@@ -412,6 +412,7 @@ textarea.field {
 
 .badge {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     margin-bottom: 20px;
     align-items: center;
