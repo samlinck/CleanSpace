@@ -336,6 +336,7 @@ a div[data-member='4'] {
 #user {
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-right: 25px;
 }
 
 div.make-problem {
@@ -509,8 +510,9 @@ ul{
 .location-icon {
     width: 55px;
 }
-.spaceName {
+a.spaceName {
     margin-left: 18%;
+    text-align: left;
 }
 
 .badge img {

@@ -25,7 +25,7 @@
         <div class="list-container">       
             <ul class="list-items" id="listupdates">
             <?php foreach($mySpaces as $s): ?>
-                 <li class="location-list"><img src="images/<?php echo $s['spaceType'];?>.svg" alt="locationIcon" class="location-icon"><a href="location.php?location_id=<?php echo $s['id'];?>"><span class="spaceName"><?php echo $s['spaceName'];?></span></a></li>
+                 <li class="location-list"><img src="images/<?php echo $s['spaceType'];?>.svg" alt="locationIcon" class="location-icon"><a href="location.php?location_id=<?php echo $s['id'];?>" class="spaceName"><?php echo $s['spaceName'];?></a></li>
             <?php endforeach; ?>
             </ul>
         </div>
