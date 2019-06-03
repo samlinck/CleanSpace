@@ -4,6 +4,13 @@
     // static function to get whole issue
     $challengeInfo = Challenge::getChallengeById($challengeId);
     $challengeInfo = array_shift($challengeInfo);
+
+    // can complete and delete?
+    $spaceId= $challengeInfo['space_id'];
+    $admins = Space::checkAdmin($spaceId);
+    $admins = array_column($admins,'user_id');
+    $userId = $_SESSION['user'][0];
+    $canSee = Space::onlyAdmin($userId, $admins);
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +28,13 @@
     <div class="single-location large-container">
         <div class="add-issue">
             <a href="location.php?location_id=<?php echo $challengeInfo['space_id'];?>"><img src="./images/cross.svg" alt=""></a>
-            <p>Add Challenge</p>
+            <p>Challenge</p>
             <img src="./images/<?php echo $challengeInfo['challengeType']; ?>.svg" alt="">
             <div class="description">
                 <p><?php echo $challengeInfo['challengeDesc'];?></p>
             </div>
+            <a href="complete.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" class="btn">Challenge completed?</a>
+            <a href="deleteChallenge.php?location_id=<?php echo $challengeInfo['space_id'];?>&challenge_id=<?php echo $challengeInfo['id'];?>" class="btn btn--delete <?php echo $canSee ;?>">Delete this challenge!</a>
         </div>
     </div>
 </body>
