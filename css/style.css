@@ -674,7 +674,7 @@ header{
   .menu li {display: block;   margin: 0; padding:10px 15px 10px 15px; margin-right: 20px;}
   .menu li:hover{display: block;  color:#112F41; border-radius:25px; background:#ffffff;}
   .menu ul li a { text-decoration:none;  color:#fff;}
-  .menu a{text-decoration:none; color:#fff;}
+  .menu a{text-decoration:none; color:#fff; font-size: 20px;}
   .menu a:hover{text-decoration:none; color:#fff;}
   .menu .menu__logout {margin-top: 150px;}
 
